@@ -20,7 +20,7 @@ void	sort_arr(t_stack *stack)
 	pivot = stack->a[stack->a_used / 2];
 	printf("pivot: %d\n", pivot);
 	counter = stack->a_used / 2;
-	while (counter )
+	while (!is_sorted(stack->a, stack->size, stack->a_start, stack->a_used))
 	{
 		while (stack->a[stack->a_start] > pivot) pb_swap(stack);
 		if (stack->a[stack->a_start] < stack->a[stack->a_start + 1])
@@ -36,4 +36,6 @@ void	sort_arr(t_stack *stack)
 		getchar();
 		counter--;
 	}
+	while (stack->b_used)
+		pa_swap(stack);
 }
